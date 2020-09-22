@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="loginstyle.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+        
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+        
+        .topnav a {
+            float: right;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 12px 18px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        
+        .topnav b {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 12px 18px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        
+        .dropdown {
+            float: right;
+            overflow: hidden;
+        }
+        
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+            margin-right: 60px;
+        }
+        
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 40px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        /* Float four columns side by side */
+        
+        .column {
+            float: left;
+            width: 25%;
+            padding: 0 10px;
+        }
+        /* Remove extra left and right margins, due to padding */
+        
+        .row {
+            margin: 0 -5px;
+        }
+        /* Clear floats after the columns */
+        
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* Responsive columns */
+        
+        @media screen and (max-width: 600px) {
+            .column {
+                width: 100%;
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+        
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 300px;
+            perspective: 1000px;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+        
+        .flip-card-back {
+            background-color: black;
+            color: white;
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="services.html">Services</a>
+        <a href="medauthentication.php">Medical History</a>
+        <a href="#contact">Contact us</a>
+    </div>
+    <div class="topnav">
+        <div class="dropdown">
+            <a class="dropbtn">MyProfile</a>
+            <div class="dropdown-content">
+                <a href="profile.php">Profile</a>
+                <a href="myappointments.php">My Appointments</a>
+                <a href="logout.php">Logout</a>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+    <div class="topnav" align="center">
+        <span style="color:white;font-size: 40px;">CARE DENTAL</span >
+        <b href="mySidenav "><span style="font-size:30px;cursor:pointer " onclick="openNav() ">&#9776; </span></b>
+    </div>
+    <div>
+        <img src="mimg2.jpg" height="700" width="100%">
+    </div>
+    <h1>OUR DOCTORS</h1>
+    <div class="row">
+        <div class="column">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="doctor1.png" alt="Avatar" style="width:300px;height:300px;">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Dr.Rajesh</h1>
+                        <p>Endodontist</p>
+                        <p>Timing:10:00AM-2:00PM <br> 4:00PM-8:00PM(MON-SAT)
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <p><button onclick="location.href='appointment.php'">Book Appointment</button></p>
+        </div>
+
+        <div class="column">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="doctor2.jpg" alt="Avatar" style="width:300px;height:300px;">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Dr.Sneha</h1>
+                        <p>Orthodontist</p>
+                        <p>Timing:3:00PM-6:00PM(FRI)</p>
+                    </div>
+                </div>
+            </div>
+            <p><button onclick="location.href='appointment.php'">Book Appointment</button></p>
+        </div>
+
+        <div class="column">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="doctor3.jpg" alt="Avatar" style="width:300px;height:300px;">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Dr.Deeksha</h1>
+                        <p>Periodontist</p>
+                        <p>Timing:12:00PM-6:00PM(MON-SAT)</p>
+                    </div>
+                </div>
+            </div>
+            <p><button onclick="location.href='appointment.php'">Book Appointment</button></p>
+        </div>
+
+        <div class="column">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="doctor4.jpg" alt="Avatar" style="width:300px;height:300px;">
+                    </div>
+                    <div class="flip-card-back">
+                        <h1>Dr.Srinivas</h1>
+                        <p>Prosthodontist</p>
+                        <p>Timing:10:00AM-12:00PM(WED-THU)</p>
+                    </div>
+                </div>
+            </div>
+            <p><button onclick="location.href='appointment.php'">Book Appointment</button></p>
+        </div>
+    </div>
+    </div>
+    <div id="contact">
+        <h1>CONTACT US</h1>
+        <p>cell:9198245673</p>
+        <p>Adress:HT Rd, Suchitra, Pedda Bashirabad, Meenakshi Estate, Jeedimetla, Hyderabad, Telangana 500055</p>
+        <map><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3804.8291104133555!2d78.47988611503854!3d17.515669203702508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb9b5d4ab52dfd%3A0x6cb110ac0f20f0f4!2sCARE%20DENTAL!5e0!3m2!1sen!2sin!4v1598793781127!5m2!1sen!2sin" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></map>
+    </div>
+    <div>
+        <h1>FEEDBACK</h1>
+        <form action="feedback.php" method="POST">
+            <h4> <textarea rows="4" cols="200" id="feedback" name="feedback">
+          comments</textarea></h4>
+            <div align="center">
+                <button class="fa fa-paper-plane" style="cursor:pointer" class="bar-item button">SUBMIT</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
